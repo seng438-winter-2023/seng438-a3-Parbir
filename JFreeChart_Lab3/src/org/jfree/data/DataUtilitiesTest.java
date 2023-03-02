@@ -676,5 +676,38 @@ public class DataUtilitiesTest extends DataUtilities {
 			
 			KeyedValues actualCumulativePercentage = DataUtilities.getCumulativePercentages(keyedValues);
 		}
+		
+		// Assignment 3 Tests -----------------
+		
+		// Test getCumulativePercentages when it has a null value in a row
+		@Test
+		public void getCumulativePercentagesDataHasNullValue() {
+			Mockery mockingContext = new Mockery();
+			final KeyedValues keyedValues = mockingContext.mock(KeyedValues.class);
+			
+			mockingContext.checking(new Expectations() {
+				{
+					allowing(keyedValues).getItemCount();
+					will(returnValue(3));
+					allowing(keyedValues).getKeys();
+					will(returnIterator(0, 1, 2));
+					allowing(keyedValues).getValue(0);
+					will(returnValue(null));
+					allowing(keyedValues).getValue(1);
+					will(returnValue(9));
+					allowing(keyedValues).getValue(2);
+					will(returnValue(2));
+					allowing(keyedValues).getKey(0);
+					will(returnValue(0));
+					allowing(keyedValues).getKey(1);
+					will(returnValue(1));
+					allowing(keyedValues).getKey(2);
+					will(returnValue(2));
+				}
+			});
+			
+			KeyedValues actualCumulativePercentage = DataUtilities.getCumulativePercentages(keyedValues);
+			assertEquals("Cumulative percentage return value for index 1 should be 0.81818", 9.0/11.0, actualCumulativePercentage.getValue(1));
+		}
 
 }
