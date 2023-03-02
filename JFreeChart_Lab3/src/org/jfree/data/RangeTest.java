@@ -1,6 +1,9 @@
 package org.jfree.data;
 
 import static org.junit.Assert.*;
+
+import java.security.InvalidParameterException;
+
 import org.jfree.data.Range;
 import org.junit.Test;
 import org.junit.*;
@@ -359,6 +362,78 @@ public class RangeTest {
 			boolean expectedIntersect = true;
 			boolean actualIntersect = sampleRange.intersects(-10, 0);
 			assertEquals("Ranges should intersect when one range's lower bound is equal to another's upper bound", expectedIntersect, actualIntersect);
+		}
+		
+		// Assignment 3 Tests -----------------
+		
+		// Test if error is thrown when constructing a range with a lower bound higher than the upper bound.
+		@Test (expected = IllegalArgumentException.class)
+		public void testRangeLowerBoundGreaterThanUpperBound() {
+			Range sampleRange = new Range(10, -10);
+		}
+		
+		// Test getCentralValue method with valid input
+		@Test
+		public void testGetCentralValue() {
+			Range sampleRange = new Range(0, 8);
+			
+			double expectedCentralValue = 4.0;
+			double actualCentralValue = sampleRange.getCentralValue();
+			assertEquals("Central value between 0 and 8 should be 4", expectedCentralValue, actualCentralValue, .000000001d);
+		}
+		
+		// Test combine method with null range1
+		@Test
+		public void testCombineRangeOneNull() {
+			Range r1 = null;
+			Range r2 = new Range(0, 10);
+			
+			Range expectedCombinedRange = new Range(0, 10);
+			Range actualCombinedRange = Range.combine(r1, r2);
+			assertEquals("If range1 is null the combined range should be range2", expectedCombinedRange, actualCombinedRange);
+		}
+		
+		// Test combine method with null range1
+		@Test
+		public void testCombineRangeTwoNull() {
+			Range r1 = new Range(-5, 5);
+			Range r2 = null;
+			
+			Range expectedCombinedRange = new Range(-5, 5);
+			Range actualCombinedRange = Range.combine(r1, r2);
+			assertEquals("If range2 is null the combined range should be range1", expectedCombinedRange, actualCombinedRange);
+		}
+		
+		// Test combine method with non-null ranges
+		@Test
+		public void testCombineNonNullRanges() {
+			Range r1 = new Range(-5, 5);
+			Range r2 = new Range(0, 10);
+			
+			Range expectedCombinedRange = new Range(-5, 10);
+			Range actualCombinedRange = Range.combine(r1, r2);
+			assertEquals("Combined range should have minimum of lower bounds and maximum of upper bounds", expectedCombinedRange, actualCombinedRange);
+		}
+		
+		// Test intersect with another range as input
+		@Test
+		public void testIntersectTwoRanges() {
+			Range r1 = new Range(-10, 5);
+			Range r2 = new Range(0, 10);
+			
+			boolean expectedIntersect = true;
+			boolean actualIntersect = r1.intersects(r2);
+			assertEquals("Ranges should intersect", expectedIntersect, actualIntersect);
+		}
+		
+		// Test constrain with a value lower than the lower bound of input range
+		@Test
+		public void testConstrainValueLowerThanLowerBound() {
+			Range sampleRange = new Range (0, 10);
+			
+			double expectedConstrain = 0.0;
+			double actualConstrain = sampleRange.constrain(-5);
+			assertEquals("Constrained value should be the lower bound", expectedConstrain, actualConstrain, .000000001d);
 		}
 		
 		
