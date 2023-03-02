@@ -163,6 +163,51 @@ public class RangeTest {
 			assertEquals("-24 should exist in range of -42 to -24", expectedContains, actualContains);
 		}
 		
+
+		// Testing isNaNRange()
+
+		// Test if a valid integer bounds are in range
+		@Test
+		public void testisNaNRangeValidBounds() {
+			Range sampleRange = new Range(-48, -24);
+
+			boolean expectedIsNaNRange = false;
+			boolean actualIsNaNRange = sampleRange.isNaNRange();
+			assertEquals("is not NaNRange with valid lower bound", expectedIsNaNRange, actualIsNaNRange);
+		}
+
+		// Test if a valid integer bounds are in range w/o valid lowerBound
+		@Test
+		public void testisNaNRangeInvalidLowerBound() {
+			Range sampleRange = new Range(0.0/0.0, -24);
+
+			boolean expectedIsNaNRange = false;
+			boolean actualIsNaNRange = sampleRange.isNaNRange();
+			assertEquals("isNaNRange with invalid lower bound", expectedIsNaNRange, actualIsNaNRange);
+		}
+
+		// Test if a valid integer bounds are in range w/o valid upperBound
+		@Test
+		public void testisNaNRangeInvalidUpperBound() {
+			Range sampleRange = new Range(10, 0.0/0.0);
+
+			boolean expectedIsNaNRange = false;
+			boolean actualIsNaNRange = sampleRange.isNaNRange();
+			assertEquals("isNaNRange with invalid upper bound", expectedIsNaNRange, actualIsNaNRange);
+		}
+
+		// Test if a valid integer bounds are in range w/o valid lower and upperBound
+		@Test
+		public void testisNaNRangeInvalidBounds() {
+			Range sampleRange = new Range(0.0/0.0, 0.0/0.0);
+
+			boolean expectedIsNaNRange = true;
+			boolean actualIsNaNRange = sampleRange.isNaNRange();
+			assertEquals("isNaNRange with invalid upper and lower bound", expectedIsNaNRange, actualIsNaNRange);
+		}
+			
+			
+		
 	    //-------------getUpperBound() Test Start------------------
 	    
 	    //testing method getUpperBound() for case where upper bound != lower bound
