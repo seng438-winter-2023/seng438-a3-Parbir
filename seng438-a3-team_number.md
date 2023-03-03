@@ -135,7 +135,28 @@ Text…
 
 # 8 A discussion on how the team work/effort was divided and managed
 
-Text…
+Our decision as a team was to increase coverage for the methods we had individually developed test cases for in the previous lab. Then, if necessary, we selected additional methods to develop test cases for in order to increase method coverage. As a result, the following additional test cases were generated:
+### Ahad
+### Mushtaba
+### Parbir
+### Athul
+#### Range.java - Previous Methods
+1. intersects()
+    - testIntersectTwoRanges()
+2. constrain()
+    - testConstrainValueLowerThanLowerBound()
+#### Range.java - Additional Methods
+1. Range constructor
+    - testRangeLowerBoundGreaterThanUpperBound()
+2. getCentralValue()
+    - testGetCentralValue()
+3. combine()
+    - testCombineRangeOneNull()
+    - testCombineRangeTwoNull()
+    - testCombineNonNullRanges()
+#### DataUtilities.java - Previous Methods
+1. getCumulativePercentages()
+    - getCumulativePercentagesDataHasNullValue()
 
 # 9 Any difficulties encountered, challenges overcome, and lessons learned from performing the lab
 
