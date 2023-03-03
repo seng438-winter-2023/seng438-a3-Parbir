@@ -556,6 +556,54 @@ public class DataUtilitiesTest extends DataUtilities {
 			assertEquals(result, 10.0, .000000001d);
 			// tear-down: NONE in this test method
 		}
+		
+
+		// Testing valid row index and data parameter which contains null values (overloaded)
+		@Test
+		 public void testCalculateColumnTotalNullValuesOverloaded() {
+					
+					Mockery mockingContext = new Mockery();
+				    final Values2D values = mockingContext.mock(Values2D.class);
+				    mockingContext.checking(new Expectations() {
+				        {
+				            one(values).getColumnCount();
+				            will(returnValue(1));
+				            one(values).getRowCount();
+				            will(returnValue(2));
+				            one(values).getValue(0, 0);
+				            will(returnValue(null));
+				            one(values).getValue(1, 0);
+				            will(returnValue(null));	            
+				        }
+				    });
+				    
+				    int[] validRows = {0, 1};
+
+				     double calculationResult = DataUtilities.calculateColumnTotal(values, 0, validRows);
+				     assertEquals("Column 0 total after null + null", 0, calculationResult, .000000001d);
+				 }
+		
+
+		// Testing negative column/row count (overloaded)
+		@Test
+		 public void testCalculateColumnTotalNegativeCountOverloaded() {
+			
+			Mockery mockingContext = new Mockery();
+		    final Values2D values = mockingContext.mock(Values2D.class);
+		    mockingContext.checking(new Expectations() {
+		        {
+		            one(values).getColumnCount();
+		            will(returnValue(-1));
+		            one(values).getRowCount();
+		            will(returnValue(-1));	            
+		        }
+		    });
+		    
+		     int[] validRows = {0, 1};
+
+		     double calculationResult = DataUtilities.calculateColumnTotal(values, 0, validRows);
+		     assertEquals("Column 0 total after null + null", 0, calculationResult, .000000001d);
+		 }
 	
 	 //Parbir Code
 	 //createNumberArray2D(double[][] data) Tests
