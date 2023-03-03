@@ -55,6 +55,17 @@ Methods: Range.contains() and DataUtilities.calculateColumnTotal()
 - du(8, 9, r2) = { [8, 9] }
 - du(9, 10, n2) = { [9, 10] }
 - du(9, 11, n2) = { [9, 11] }
+### DU-Pairs per Variable
+| Variable (v) | Defined at node (n) | DU Pairs                          |
+| ------------ | ------------------- | --------------------------------- |
+| data         | 1                   | { (1, 1), (1, 3), (1, 5), (1, 9) } |
+| column       | 1                   | { (1, 5), (1, 9) }                |
+| total        | 2                   | { (2, 7), (2, 11), (2, 12) }      |
+| rowCount     | 3                   | { (3, 4), (3, 8) }                  |
+| r            | 4                   | { (4, 4), (4, 5) }                  |
+| n1           | 5                   | { (5, 6), (5, 7) }                  |
+| r2           | 8                   | { (8, 8), (8, 9) }                  |
+| n2           | 9                   | { (9, 10), (9, 11) }                |
 
 # 3 A detailed description of the testing strategy for the new unit test
 
