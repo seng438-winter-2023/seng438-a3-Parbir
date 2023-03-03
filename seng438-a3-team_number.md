@@ -142,21 +142,21 @@ Our decision as a team was to increase coverage for the methods we had individua
 ### Athul
 #### Range.java - Previous Methods
 1. intersects()
-    - testIntersectTwoRanges()
+    - `testIntersectTwoRanges()`
 2. constrain()
-    - testConstrainValueLowerThanLowerBound()
+    - `testConstrainValueLowerThanLowerBound()`
 #### Range.java - Additional Methods
 1. Range constructor
-    - testRangeLowerBoundGreaterThanUpperBound()
+    - `testRangeLowerBoundGreaterThanUpperBound()`
 2. getCentralValue()
-    - testGetCentralValue()
+    - `testGetCentralValue()`
 3. combine()
-    - testCombineRangeOneNull()
-    - testCombineRangeTwoNull()
-    - testCombineNonNullRanges()
+    - `testCombineRangeOneNull()`
+    - `testCombineRangeTwoNull()`
+    - `testCombineNonNullRanges()`
 #### DataUtilities.java - Previous Methods
 1. getCumulativePercentages()
-    - getCumulativePercentagesDataHasNullValue()
+    - `getCumulativePercentagesDataHasNullValue()`
 
 # 9 Any difficulties encountered, challenges overcome, and lessons learned from performing the lab
 
