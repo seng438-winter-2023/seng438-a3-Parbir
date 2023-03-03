@@ -86,9 +86,9 @@ Total pairs = 19
 Number of unique pairs covered =  13  
 **DU pair coverage = Number of unique pairs covered / Total pairs = 13 / 19 * 100% = 68.42%**  
 
-# 3 A detailed description of the testing strategy for the new unit test
+# 3 A detailed description of the testing strategy for the new unit tests
 
-For the new unit test, our strategy was to first assess the coverage for both classes with our test suite from the previous assignment. Since we were using EclEmma, which does not have condition coverage, we substituted it with method coverage. Similarly, we substituted line coverage for statement coverage.
+For the new unit tests, our strategy was to first assess the coverage for both classes with our test suite from the previous assignment. Since we were using EclEmma, which does not have condition coverage, we substituted it with method coverage. Similarly, we substituted line coverage for statement coverage.
 ### Coverage metrics from A2
 - Range.java
     - Statement (Line) coverage: 18.5%
@@ -131,7 +131,9 @@ Text…
 
 # 6 Pros and Cons of coverage tools used and Metrics you report
 
-Text…
+Text…  
+  
+Pros and cons of the coverage tools tried by your group in this assignment, in terms of reported measures, integration with the IDE and other plug-ins, user friendliness, crashes, etc.
 
 # 7 A comparison on the advantages and disadvantages of requirements-based test generation and coverage-based test generation.
 
