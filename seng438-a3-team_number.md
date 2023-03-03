@@ -88,7 +88,34 @@ Number of unique pairs covered =  13
 
 # 3 A detailed description of the testing strategy for the new unit test
 
-Text…
+For the new unit test, our strategy was to first assess the coverage for both classes with our test suite from the previous assignment. Since we were using EclEmma, which does not have condition coverage, we substituted it with method coverage. Similarly, we substituted line coverage for statement coverage.
+### Coverage metrics from A2
+- Range.java
+    - Statement (Line) coverage: 18.5%
+    - Branch coverage: 22.0%
+    - Condition (Method) coverage: 26.1%
+- DataUtilities.java
+    - Statement (Line) coverage: 46.9%
+    - Branch coverage: 29.7%
+    - Condition (Method) coverage: 60.0%
+
+Then, we took the difference between the target coverage metrics and our current coverage metrics, and divided that by 4, with the idea that each team member would try to increase coverage of the methods they tested in the previous assignment by that amount.
+### Target metrics for A3
+- Statement (Line) coverage: 90%
+- Branch coverage: 70%
+- Condition (Method) coverage: 60.0%
+
+So, each person will need to increase coverage by the following amount:
+- Range.java
+    - Statement (Line) coverage: +17.9%
+    - Branch coverage: +12.0%
+    - Condition (Method) coverage: +8.5%
+- DataUtilities.java
+    - Statement (Line) coverage: +10.8%
+    - Branch coverage: +10.1%
+    - Condition (Method) coverage: technically 0, but cover at least one additional method
+
+Our priority for increasing coverage was to first increase the line and branch coverage for our previous methods to the target metrics per person stated above. Then, once we had achieved that level of coverage or could not increase it further, we would increase the method coverage by testing new methods, until we reached the target metrics for condition (in this case, method) coverage.
 
 # 4 A high level description of five selected test cases you have designed using coverage information, and how they have increased code coverage
 
