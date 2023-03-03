@@ -28,7 +28,7 @@ Methods: Range.contains() and DataUtilities.calculateColumnTotal()
 ### DU Pair Coverage
 ## DataUtilities.calculateColumnTotal()
 ### Dataflow Graph
-(need to add)
+![](media/DataUtilities-calculateColumnTotalDFD.jpg)
 ### Def-path set
 - du(1, data) = { [1], [1, 2, 3], [1, 2, 3, 4, 5],  [1, 2, 3, 4, 5, 6, 4,  8, 9], [1, 2, 3, 4, 5, 6, 7, 4,  8, 9], [1, 2, 3, 4, 8, 9] }
 - du(1, column) = { [1, 2, 3, 4, 5],  [1, 2, 3, 4, 5, 6, 4,  8, 9], [1, 2, 3, 4, 5, 6, 7, 4,  8, 9], [1, 2, 3, 4, 8, 9] }
