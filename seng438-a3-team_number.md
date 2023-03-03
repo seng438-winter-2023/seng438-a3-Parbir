@@ -23,6 +23,9 @@ Methods: Range.contains() and DataUtilities.calculateColumnTotal()
 (need to add)
 ### Def-path set
 ### Def-pair set
+### DU-Pairs per Variable
+### DU-Pairs per Test Case
+### DU Pair Coverage
 ## DataUtilities.calculateColumnTotal()
 ### Dataflow Graph
 (need to add)
@@ -35,7 +38,6 @@ Methods: Range.contains() and DataUtilities.calculateColumnTotal()
 - du(5, n<sub>1</sub>) = { [5, 6], [5, 7], [5, 6, 4, 5, 6, 7] }
 - du(8, r2) = { [8], [8, 9] }
 - du(9, n<sub>2</sub>) = { [9, 10], [9, 10, 11] }
-
 #### Note:
 - n<sub>1</sub> is the variable n encountered in line 128 in the first for loop.
 - n<sub>2</sub> is the variable n encountered in line 134 in the second for loop.
@@ -70,6 +72,19 @@ Methods: Range.contains() and DataUtilities.calculateColumnTotal()
 | n<sub>1</sub>           | 5                   | { (5, 6), (5, 7) }                  |
 | r2           | 8                   | { (8, 8), (8, 9) }                  |
 | n<sub>2</sub>           | 9                   | { (9, 10), (9, 11) }                |
+### DU-Pairs per Test Case
+| Test Case                                    | Pairs Covered                                                                                                                                                                             |
+| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| calculateColumnTotalForTwoValues()           | du(1, 1, data), du(1, 3, data), du(1, 5, data), du(1, 5, column), du(2, 7, total), du(2, 12, total), du(3, 4, rowCount), du(4, 4, r), du(4, 5, r),  du(5, 6, r), du(5, 7, r), du(8, 8, r) |
+| calculateColumnTotalNullData()               | du(1, 1, data)                                                                                                                                                                            |
+| calculateColumnTotalEmpty()                  | du(1, 1, data), du(1, 3, data), du(3, 4, rowCount), du(3, 8, rowCount), du(4, 4, r), du(8, 8, r)                                                                                          |
+| calculateColumnTotalPositiveTableAndValues() | du(1, 1, data), du(1, 3, data), du(1, 5, data), du(1, 5, column), du(2, 7, total), du(2, 12, total), du(3, 4, rowCount), du(4, 4, r), du(4, 5, r),  du(5, 6, r), du(5, 7, r), du(8, 8, r) |
+| calculateColumnTotalNegativeValues()         | du(1, 1, data), du(1, 3, data), du(1, 5, data), du(1, 5, column), du(2, 7, total), du(2, 12, total), du(3, 4, rowCount), du(4, 4, r), du(4, 5, r),  du(5, 6, r), du(5, 7, r), du(8, 8, r) |
+| calculateColumnTotalNegativeColumn()         | du(1, 1, data), du(1, 3, data), du(1, 5, data), du(1, 5, column), du(3, 4, rowCount), du(4, 4, r), du(4, 5, r)                                                                            |
+### DU Pair Coverage
+Total pairs = 19  
+Number of unique pairs covered =  13  
+**DU pair coverage = Number of unique pairs covered / Total pairs = 13 / 19 * 100% = 68.42%**  
 
 # 3 A detailed description of the testing strategy for the new unit test
 
