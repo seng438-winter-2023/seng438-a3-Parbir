@@ -17,8 +17,25 @@ for each group. Please see each lab document for details.)
 Text…
 
 # 2 Manual data-flow coverage calculations for X and Y methods
-
-Text…
+Methods: Range.contains() and DataUtilities.calculateColumnTotal()
+## Range.contains()
+### Dataflow Graph
+(need to add)
+### Def-path set
+### Def-pair set
+## DataUtilities.calculateColumnTotal()
+### Dataflow Graph
+(need to add)
+### Def-path set
+- du(1, data) = { [1], [1, 2, 3], [1, 2, 3, 4, 5],  [1, 2, 3, 4, 5, 6, 4,  8, 9], [1, 2, 3, 4, 5, 6, 7, 4,  8, 9], [1, 2, 3, 4, 8, 9] }
+- du(1, column) = { [1, 2, 3, 4, 5],  [1, 2, 3, 4, 5, 6, 4,  8, 9], [1, 2, 3, 4, 5, 6, 7, 4,  8, 9], [1, 2, 3, 4, 8, 9] }
+- du(2, total) = { [2, 3, 4, 5, 6, 7], [2, 3, 4, 5, 6, 7, 4, 8, 9, 10, 11], [2, 3, 4, 5, 6, 4, 8, 9, 10, 11], [2, 3, 4, 8, 9, 10, 11], [2, 3, 4, 8, 12], [2, 3, 4, 8, 9, 10, 8, 12], [2, 3, 4, 8, 9, 10, 11, 8, 12], [2, 3, 4, 5, 6, 4, 8, 12], [2, 3, 4, 5, 6, 7, 4, 8, 12], [2, 3, 4, 5, 6, 4, 8, 9, 10, 8, 12], [2, 3, 4, 5, 6, 4, 8, 9, 10, 11, 8, 12], [2, 3, 4, 5, 6, 7, 4, 8, 9, 10, 8, 12],  [2, 3, 4, 5, 6, 7, 4, 8, 9, 10, 11, 8, 12] }
+- du(3, rowCount) = { [3, 4], [3, 4, 8], [3, 4, 5, 6, 7, 4, 8], [3, 4, 5, 6, 4, 8] }
+- du(4, r) = { [4], [4, 5] }
+- du(5, n1) = { [5, 6], [5, 7], [5, 6, 4, 5, 6, 7] }
+- du(8, r2) = { [8], [8, 9] }
+- du(9, n2) = { [9, 10], [9, 10, 11] } 
+### Def-pair set
 
 # 3 A detailed description of the testing strategy for the new unit test
 
