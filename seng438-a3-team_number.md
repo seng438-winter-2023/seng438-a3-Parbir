@@ -119,7 +119,11 @@ Our priority for increasing coverage was to first increase the line and branch c
 
 # 4 A high level description of five selected test cases you have designed using coverage information, and how they have increased code coverage
 
-Text…
+### `getCumulativePercentagesDataHasNullValue()`
+This test case was developed primarily to increase branch coverage, as I noticed that there were two conditions in DataUtilities.getCumulativePercentages() that checked to see if any of the data inside the `KeyedValues` input was null. My test cases in the previous assignment tested for null data as a whole, but did not test for data with null records, and so these branches were not fully covered. Subsequently, after adding this test case, the coverage increased by the following amounts:
+- Statement (Line) coverage:
+- Branch coverage:
+- Condition (Method) coverage: 
 
 # 5 A detailed report of the coverage achieved of each class and method (a screen shot from the code cover results in green and red color would suffice)
 
