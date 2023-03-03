@@ -32,9 +32,13 @@ Methods: Range.contains() and DataUtilities.calculateColumnTotal()
 - du(2, total) = { [2, 3, 4, 5, 6, 7], [2, 3, 4, 5, 6, 7, 4, 8, 9, 10, 11], [2, 3, 4, 5, 6, 4, 8, 9, 10, 11], [2, 3, 4, 8, 9, 10, 11], [2, 3, 4, 8, 12], [2, 3, 4, 8, 9, 10, 8, 12], [2, 3, 4, 8, 9, 10, 11, 8, 12], [2, 3, 4, 5, 6, 4, 8, 12], [2, 3, 4, 5, 6, 7, 4, 8, 12], [2, 3, 4, 5, 6, 4, 8, 9, 10, 8, 12], [2, 3, 4, 5, 6, 4, 8, 9, 10, 11, 8, 12], [2, 3, 4, 5, 6, 7, 4, 8, 9, 10, 8, 12],  [2, 3, 4, 5, 6, 7, 4, 8, 9, 10, 11, 8, 12] }
 - du(3, rowCount) = { [3, 4], [3, 4, 8], [3, 4, 5, 6, 7, 4, 8], [3, 4, 5, 6, 4, 8] }
 - du(4, r) = { [4], [4, 5] }
-- du(5, n1) = { [5, 6], [5, 7], [5, 6, 4, 5, 6, 7] }
+- du(5, n<sub>1</sub>) = { [5, 6], [5, 7], [5, 6, 4, 5, 6, 7] }
 - du(8, r2) = { [8], [8, 9] }
-- du(9, n2) = { [9, 10], [9, 10, 11] } 
+- du(9, n<sub>2</sub>) = { [9, 10], [9, 10, 11] }
+
+#### Note:
+- n<sub>1</sub> is the variable n encountered in line 128 in the first for loop.
+- n<sub>2</sub> is the variable n encountered in line 134 in the second for loop.
 ### Def-pair set
 - du(1, 1, data) = { [1] }
 - du(1, 3, data) = { [1, 2, 3] }
@@ -49,12 +53,12 @@ Methods: Range.contains() and DataUtilities.calculateColumnTotal()
 - du(3, 8, rowCount) = { [3, 4, 8], [3, 4, 5, 6, 7, 4, 8], [3, 4, 5, 6, 4, 8] }
 - du(4, 4, r) = { [4] }
 - du(4, 5, r) = { [4, 5] }
-- du(5, 6, n1) = { [5, 6] }
-- du(5, 7, n1) = { [5, 7], [5, 6, 4, 5, 6, 7] }
+- du(5, 6, n<sub>1</sub>) = { [5, 6] }
+- du(5, 7, n<sub>1</sub>) = { [5, 7], [5, 6, 4, 5, 6, 7] }
 - du(8, 8, r2) = { [8] }
 - du(8, 9, r2) = { [8, 9] }
-- du(9, 10, n2) = { [9, 10] }
-- du(9, 11, n2) = { [9, 11] }
+- du(9, 10, n<sub>2</sub>) = { [9, 10] }
+- du(9, 11, n<sub>2</sub>) = { [9, 11] }
 ### DU-Pairs per Variable
 | Variable (v) | Defined at node (n) | DU Pairs                          |
 | ------------ | ------------------- | --------------------------------- |
@@ -63,9 +67,9 @@ Methods: Range.contains() and DataUtilities.calculateColumnTotal()
 | total        | 2                   | { (2, 7), (2, 11), (2, 12) }      |
 | rowCount     | 3                   | { (3, 4), (3, 8) }                  |
 | r            | 4                   | { (4, 4), (4, 5) }                  |
-| n1           | 5                   | { (5, 6), (5, 7) }                  |
+| n<sub>1</sub>           | 5                   | { (5, 6), (5, 7) }                  |
 | r2           | 8                   | { (8, 8), (8, 9) }                  |
-| n2           | 9                   | { (9, 10), (9, 11) }                |
+| n<sub>2</sub>           | 9                   | { (9, 10), (9, 11) }                |
 
 # 3 A detailed description of the testing strategy for the new unit test
 
