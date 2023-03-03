@@ -50,6 +50,29 @@ public class DataUtilitiesTest extends DataUtilities {
 	     assertEquals("Row 0 total after 4.0 + 4.0", 8.0, calculationResult, .000000001d);
 	 }
 	
+	// Testing valid row index and data parameter which contains null values
+		@Test
+		 public void testCalculateRowTotalNullValues() {
+			
+			Mockery mockingContext = new Mockery();
+		    final Values2D values = mockingContext.mock(Values2D.class);
+		    mockingContext.checking(new Expectations() {
+		        {
+		            one(values).getColumnCount();
+		            will(returnValue(2));
+		            one(values).getRowCount();
+		            will(returnValue(1));
+		            one(values).getValue(0, 0);
+		            will(returnValue(null));
+		            one(values).getValue(0, 1);
+		            will(returnValue(null));	            
+		        }
+		    });
+
+		     double calculationResult = DataUtilities.calculateRowTotal(values, 0);
+		     assertEquals("Row 0 total after null + null", 0, calculationResult, .000000001d);
+		 }
+	
 	// Testing valid row index and data parameter which contains negative values
 	@Test
 	 public void testCalculateRowTotalNegativeValues() {
@@ -165,6 +188,79 @@ public class DataUtilitiesTest extends DataUtilities {
 	    assertEquals("Calculate total with AUB row index should be zero", 0.0, calculationResult, .000000001d);
 		
 	 }
+	
+	// Testing valid row index and data parameter which contains positive values (overloaded)
+		@Test
+		 public void testCalculateRowTotalPositiveValuesOverloaded() {
+			
+			Mockery mockingContext = new Mockery();
+		    final Values2D values = mockingContext.mock(Values2D.class);
+		    mockingContext.checking(new Expectations() {
+		        {
+		            one(values).getColumnCount();
+		            will(returnValue(2));
+		            one(values).getRowCount();
+		            will(returnValue(1));
+		            one(values).getValue(0, 0);
+		            will(returnValue(4.0));
+		            one(values).getValue(0, 1);
+		            will(returnValue(4.0));	            
+		        }
+		    });
+		    
+		    int[] validCols = {0, 1};
+
+		     double calculationResult = DataUtilities.calculateRowTotal(values, 0, validCols);
+		     assertEquals("Row 0 total after 4.0 + 4.0", 8.0, calculationResult, .000000001d);
+		 }
+		
+		// Testing valid row index and data parameter which contains null values (overloaded)
+		@Test
+		 public void testCalculateRowTotalNullValuesOverloaded() {
+					
+					Mockery mockingContext = new Mockery();
+				    final Values2D values = mockingContext.mock(Values2D.class);
+				    mockingContext.checking(new Expectations() {
+				        {
+				            one(values).getColumnCount();
+				            will(returnValue(2));
+				            one(values).getRowCount();
+				            will(returnValue(1));
+				            one(values).getValue(0, 0);
+				            will(returnValue(null));
+				            one(values).getValue(0, 1);
+				            will(returnValue(null));	            
+				        }
+				    });
+				    
+				    int[] validCols = {0, 1};
+
+				     double calculationResult = DataUtilities.calculateRowTotal(values, 0, validCols);
+				     assertEquals("Row 0 total after null + null", 0, calculationResult, .000000001d);
+				 }
+		
+		// Testing negative column/row count (overloaded)
+		@Test
+		 public void testCalculateRowTotalNullColCountOverloaded() {
+			
+			Mockery mockingContext = new Mockery();
+		    final Values2D values = mockingContext.mock(Values2D.class);
+		    mockingContext.checking(new Expectations() {
+		        {
+		            one(values).getColumnCount();
+		            will(returnValue(-1));
+		            one(values).getRowCount();
+		            will(returnValue(-1));	            
+		        }
+		    });
+		    
+		     int[] validCols = {0, 1};
+
+		     double calculationResult = DataUtilities.calculateRowTotal(values, 0, validCols);
+		     assertEquals("Row 0 total after null + null", 0, calculationResult, .000000001d);
+		 }
+				
+		
 	
 	// Testing invalid null data parameter
 	
