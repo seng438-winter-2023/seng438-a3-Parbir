@@ -216,8 +216,76 @@ public class RangeTest {
 			boolean actualIsNaNRange = sampleRange.isNaNRange();
 			assertEquals("isNaNRange with invalid upper and lower bound", expectedIsNaNRange, actualIsNaNRange);
 		}
+		
+		//Testing combineIgnoringNaN
+		
+		//null range1 and not null range2
+		@Test
+		public void testCombineIgnoringNaNRange1Null() {
+			Range range1 = new Range(2, 4);
+			Range range2 = Range.combineIgnoringNaN(null, range1);
+			assertEquals("combineIgnoringNaN with one valid and nonvalid range", range2, range1);
+		}
+		
+		//null range1 and NaN range2
+		@Test
+		public void testCombineIgnoringNaNRange1NullRange2NaN() {
+			Range range1 = new Range(Math.sqrt(-1), Math.sqrt(-1));
+			Range range2 = Range.combineIgnoringNaN(null, range1);
+			assertNull("combineIgnoringNaN with one null and one NaN", range2);
+		}
+		
+		//NaN range1 and null range2
+		@Test
+		public void testCombineIgnoringNaNRange1NaNRange2Null() {
+			Range range1 = new Range(Math.sqrt(-1), Math.sqrt(-1));
+			Range range2 = Range.combineIgnoringNaN(range1, null);
+			assertNull("combineIgnoringNaN with one null and one NaN", range2);
+		}
+		
+		
+		
+		//null range2 and not null range 1
+		@Test
+		public void testCombineIgnoringNaNRange2Null() {
+			Range range1 = new Range(2, 4);
+			Range range2 = Range.combineIgnoringNaN(range1, null);
+			assertEquals("combineIgnoringNaN with one valid and nonvalid range", range2, range1);
+		}
+		
+		//null range1 and null range2
+		@Test
+		public void testCombineIgnoringNaNBothRangeNull() {
+			Range range2 = Range.combineIgnoringNaN(null, null);
+			assertEquals("combineIgnoringNaN with one valid and nonvalid range", range2, null);
+		}
+		
+		//non-NaN and not null range1 and non-NaN and not null range2
+		@Test
+		public void testCombineIgnoringNaNValidRange() {
+			Range range1 = new Range(2, 4);
+			Range range2 = new Range(3, 5);
+			Range actual = Range.combineIgnoringNaN(range1, range2);
+			assertEquals("combineIgnoringNaN with one valid and nonvalid range", actual, new Range(2, 5));
+		}
+		
+		//Both NaN Range
+		@Test
+		public void testCombineIgnoringNaNBothNaN() {
+			Range range1 = new Range(Math.sqrt(-1), Math.sqrt(-1));
+			Range range2 = new Range(Math.sqrt(-2), Math.sqrt(-2));
+			Range actual = Range.combineIgnoringNaN(range1, range2);
+			assertNull("combineIgnoringNaN with one null and one NaN", actual);
+		}
+		
+		//Testing combineIgnoringNaN function using min and max values to test private methods
+		@Test
+		public void testCombingIgnoringNaNMinAndMax() {
+			Range range1 = new Range(2, 4);
+			Range actual = Range.combineIgnoringNaN(range1, new Range(Math.sqrt(-1), Math.sqrt(-2)));
+			assertEquals("The return value should be 4", actual.getUpperBound(), 4, .000000001d);
 			
-			
+		}
 		
 	    //-------------getUpperBound() Test Start------------------
 	    
