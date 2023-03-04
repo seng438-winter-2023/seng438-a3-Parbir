@@ -150,6 +150,21 @@ Text…
 
 Our decision as a team was to increase coverage for the methods we had individually developed test cases for in the previous lab. Then, if necessary, we selected additional methods to develop test cases for in order to increase method coverage. As a result, the following additional test cases were generated:
 ### Ahad
+#### Range.java - Previous Methods
+1. contains()
+    - `testGetContainsNumberNotExistsLower()`
+#### Range.java - Additional Methods
+1. isNaNRange()
+    - `testisNaNRangeValidBounds()`
+    - `testisNaNRangeInvalidLowerBound()`
+    - `testisNaNRangeInvalidUpperBound()`
+    - `testisNaNRangeInvalidBounds()`
+#### DataUtilities.java - Previous Methods
+1. calculateColumnTotal()
+    - `calculateColumnTotalPositiveTableAndNullValues()`
+#### DataUtilities.java - Additional Methods
+1. calculateColumnTotal() - (overloaded method with additional parameter)
+    - `calculateColumnTotalForTwoValuesOverloaded()`
 ### Mushtaba
 ### Parbir
 ### Athul
