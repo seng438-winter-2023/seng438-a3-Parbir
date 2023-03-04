@@ -242,6 +242,14 @@ Our decision as a team was to increase coverage for the methods we had individua
 1. calculateColumnTotal() - (overloaded method with additional parameter)
     - `calculateColumnTotalForTwoValuesOverloaded()`
 ### Mushtaba
+#### DataUtilities.java - Previous Methods
+1. calculateRowTotal()
+    - `testCalculateRowTotalNullValues()`
+#### DataUtilities.java - Additional Methods
+1. calculateRowTotal() - (overloaded method with additional parameter)
+    - `testCalculateRowTotalPositiveValuesOverloaded()`
+    - `testCalculateRowTotalNullValuesOverloaded()`
+    - `testCalculateRowTotalNegativeColCountOverloaded()`
 ### Parbir
 #### Range.java - Additional Methods
 1. combineIgnoringNaN()
