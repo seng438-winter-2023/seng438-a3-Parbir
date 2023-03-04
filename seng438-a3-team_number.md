@@ -179,6 +179,20 @@ Our decision as a team was to increase coverage for the methods we had individua
     - `calculateColumnTotalForTwoValuesOverloaded()`
 ### Mushtaba
 ### Parbir
+#### Range.java - Additional Methods
+1. combineIgnoringNaN()
+    - `testCombineIgnoringNaNRange1Null()`
+    - `testCombineIgnoringNaNRange1NullRange2NaN()`
+    - `testCombineIgnoringNaNRange1NaNRange2Null()`
+    - `testCombineIgnoringNaNRange2Null()`
+    - `testCombineIgnoringNaNBothRangeNull()`
+    - `testCombineIgnoringNaNValidRange()`
+    - `testCombineIgnoringNaNBothNaN()`
+    - `testCombingIgnoringNaNMinAndMax()`
+2. min()
+    - `testCombingIgnoringNaNMinAndMax()`
+3. max()
+    - `testCombingIgnoringNaNMinAndMax()`
 ### Athul
 #### Range.java - Previous Methods
 1. intersects()
