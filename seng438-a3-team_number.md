@@ -196,6 +196,17 @@ Prior to this test case, the method `combine` the value of the min and max value
 - Branch coverage: 65.9% to 67.1% (1.2% increase)
 - Condition (Method) coverage: 65.2% to 65.2% (0.0% change)
 
+### `testCalculateRowTotalNullValues()`
+Prior to this test case, for the method `calculateRowTotal`, half of the branches was missed previously for the if statement checking whether or not the value inside of the row was null. Since we previously did not test this method with null row values, the branch "if n!= null" was partially covered since we previously tested the row without null values only. Thus, in order to increase branch coverage, we now tested the method by passing in null values into the row. We were unable to increase statement coverage to 100% because of the unreachable second for loop in the method, which similarly capped our branch coverage for this method to 62.5%.
+##### Coverage for `calculateRowTotal()`
+- Statement (Line) coverage: from 75% to 75% (0% increase)
+- Branch coverage: from 50% to 62.5% (12.5% increase)
+- Condition (Method) coverage: from 100.0% to 100.0% (0% increase)
+##### Coverage for `DataUtilities.java`
+- Statement (Line) coverage: from 70.8% to 70.8% (0% increase)
+- Branch coverage: from 54.7% to 56.2% (1.5% increase)
+- Condition (Method) coverage: from 80.0% to 80.0% (0% increase)
+
 
 # 5 A detailed report of the coverage achieved of each class and method (a screen shot from the code cover results in green and red color would suffice)
 
