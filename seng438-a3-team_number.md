@@ -14,7 +14,7 @@ for each group. Please see each lab document for details.)
 
 # 1 Introduction
 
-Text…
+The objective of this lab is to explore the idea of white box testing using JUnit and different coverage tools. This will allow us to complete white box testing on our given test suite by verifying our Junit test. Additionally, coverage tools allow us to identify the amount of unit testing has been completed with our test cases, and what is remaining. This is indicated by the green and red colors, after running a coverage. Overall, we will be able to test the suite using different tools and approaches, allowing for a more thorough approach by testing all possible coding paths. 
 
 # 2 Manual data-flow coverage calculations for X and Y methods
 Methods: Range.contains() and DataUtilities.calculateColumnTotal()
@@ -131,6 +131,18 @@ Prior to this test case, the method `calculateColumnTotal` had the best code cov
 - Branch coverage: from 57.8% to 59.4% (1.6% increase)
 - Condition (Method) coverage: from 80.0% to 80.0% (0% increase) 
 
+### `testConstrainValueLowerThanLowerBound()`
+Prior to this test case, the method `constrain` the value of lower bound was not being tested. Meaning the else if statement inside the method was being ignored, only the upper bound had been tested. Method coverage stayed the same because the method was already being tested before. Branch and Line coverage increased because it entered a conditional and consequently stored the result of the lower bound inside that conditional. Subsequently, after adding this test case, the coverage increased by the following amounts:
+- Statement (Line) coverage: 55.5% to 57.1% (1.6% increase) 
+- Branch coverage: 64.6% to 67.1% (2.5% increase)
+- Condition (Method) coverage: 65.2% to 65.2% (0% change)
+
+### `testCombineNonNullRanges()`
+Prior to this test case, the method `combine` the value of the min and max values range for non null values of the combine method were not being tested. Meaning the method itself was being tested through other test cases however the non null values, values not entering each of the if conditions were not being tested. Therefore, the branch and line coverage increased. Subsequently, after adding this test case, the coverage increased by the following amounts:
+- Statement (Line) coverage: 54.6% to 57.1% (2.5% increase)
+- Branch coverage: 65.9% to 67.1% (1.2% increase)
+- Condition (Method) coverage: 65.2% to 65.2% (0% change)
+
 
 # 5 A detailed report of the coverage achieved of each class and method (a screen shot from the code cover results in green and red color would suffice)
 
@@ -198,4 +210,7 @@ Consequently, we realized that white box testing can be useful not only for code
 
 # 10 Comments/feedback on the lab itself
 
-Text…
+This lab gave our group more satisfaction than previous lab assignments, having a more clear objective of what needs to be tested and what doesn’t give us more direction, thus being more productive with our approach. ECLEmma tool was very straightforward and easy to use, didn’t need to spend time configuring or trying to understand it outside the lecture content, allowing for us to focus more of our time on creating test cases and working on the chart. The lab itself would have provided more information on the types of coverage metrics, for example, it told us to use statement, branch and condition and if that wasn’t possible to consider replacements. Instead of giving us the choice of coverage metric, it would’ve been more beneficial to tell us adequate replacements, given the nature of our test suite. 
+
+Overall the lab helped us understand white box testing and coverage tools/metrics and gave us the ability to solidify our knowledge from lectures. It allowed us to see that some code isn’t coverable due to constructors or other things, which we do believe is good knowledge to have in the future when performing coverage and testing. 
+
