@@ -132,11 +132,11 @@ This test case was developed primarily to increase branch coverage, as I noticed
 
 ### `calculateColumnTotalPositiveTableAndNullValues()`
 Prior to this test case, the method `calculateColumnTotal` had the best code coverage it could in all 2 of the 3 metrics, line and method coverage. The reason that the line coverage, for example, was not 100% was that there was some unreachable code in the second for loop as demonstrated in the demo. Therefore, the only code coverage that could be improved this assignment was branch coverage, as one branch of one `if` conditional was not covered in the previous assignment. As such, in this test case, we ensured that both branches of the conditional were covered by ensuring all elements in the table were null. After this test case, now even the branch coverage is maximized.  Subsequently, after adding this test case, the coverage increased by the following amounts:
-##### Method-Specific Coverage
+##### Coverage for `calculateColumnTotal()`
 - Statement (Line) coverage: from 75.0% to 75.0% (0% increase)
 - Branch coverage: from 50.0% to 62.5% (12.5% increase)
 - Condition (Method) coverage: from 100.0% to 100.0% (0% increase) 
-##### Class-Specific Coverage
+##### Coverage for `DataUtilities.java`
 - Statement (Line) coverage: from 70.8% to 70.8% (0% increase)
 - Branch coverage: from 57.8% to 59.4% (1.6% increase)
 - Condition (Method) coverage: from 80.0% to 80.0% (0% increase) 
