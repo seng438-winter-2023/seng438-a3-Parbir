@@ -121,9 +121,14 @@ Our priority for increasing coverage was to first increase the line and branch c
 
 ### `getCumulativePercentagesDataHasNullValue()`
 This test case was developed primarily to increase branch coverage, as I noticed that there were two conditions in DataUtilities.getCumulativePercentages() that checked to see if any of the data inside the `KeyedValues` input was null. My test cases in the previous assignment tested for null data as a whole, but did not test for data with null records, and so these branches were not fully covered. Subsequently, after adding this test case, the coverage increased by the following amounts:
-- Statement (Line) coverage:
-- Branch coverage:
-- Condition (Method) coverage: 
+#### Coverage for `getCumulativePercentages()`
+- Statement (Line) coverage: from 83.3% to 83.3% (0% change)
+- Branch coverage: from 58.3% to 75% (16.7% change)
+- Condition (Method) coverage: from 100% to 100% (0% change)
+#### Coverage for `DataUtilities.java`
+- Statement (Line) coverage: from 46.9% to 46.9% (0% change)
+- Branch coverage: from 29.7% to 32.8% (3.1% change)
+- Condition (Method) coverage: from 60.0% to 60.0% (0% change)
 
 ### `calculateColumnTotalPositiveTableAndNullValues()`
 Prior to this test case, the method `calculateColumnTotal` had the best code coverage it could in all 2 of the 3 metrics, line and method coverage. The reason that the line coverage, for example, was not 100% was that there was some unreachable code in the second for loop as demonstrated in the demo. Therefore, the only code coverage that could be improved this assignment was branch coverage, as one branch of one `if` conditional was not covered in the previous assignment. As such, in this test case, we ensured that both branches of the conditional were covered by ensuring all elements in the table were null. After this test case, now even the branch coverage is maximized.  Subsequently, after adding this test case, the coverage increased by the following amounts:
