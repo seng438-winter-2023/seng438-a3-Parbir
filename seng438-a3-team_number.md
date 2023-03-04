@@ -143,15 +143,25 @@ Prior to this test case, the method `calculateColumnTotal` had the best code cov
 
 ### `testConstrainValueLowerThanLowerBound()`
 Prior to this test case, the method `constrain` the value of lower bound was not being tested. Meaning the else if statement inside the method was being ignored, only the upper bound had been tested. Method coverage stayed the same because the method was already being tested before. Branch and Line coverage increased because it entered a conditional and consequently stored the result of the lower bound inside that conditional. Subsequently, after adding this test case, the coverage increased by the following amounts:
+#### Coverage for `constrain()`
+- Statement (Line) coverage: 75.0% to 100.0% (25.5% increase)
+- Branch coverage: 50.0% to 83.3% (33.3% increase)
+- Condition (Method) coverage: 100% to 100% (0% change)
+#### Coverage for `Range.java`
 - Statement (Line) coverage: 55.5% to 57.1% (1.6% increase) 
 - Branch coverage: 64.6% to 67.1% (2.5% increase)
-- Condition (Method) coverage: 65.2% to 65.2% (0% change)
+- Condition (Method) coverage: 65.2% to 65.2% (0.0% change)
 
 ### `testCombineNonNullRanges()`
 Prior to this test case, the method `combine` the value of the min and max values range for non null values of the combine method were not being tested. Meaning the method itself was being tested through other test cases however the non null values, values not entering each of the if conditions were not being tested. Therefore, the branch and line coverage increased. Subsequently, after adding this test case, the coverage increased by the following amounts:
+#### Coverage for `combine()`
+- Statement (Line) coverage: 85.7% to 100.0% (14.3% increase)
+- Branch coverage: 75.0% to 100.0% (25.0% increase)
+- Condition (Method) coverage: 100.0% to 100.0% (0.0% change)
+#### Coverage for `Range.java`
 - Statement (Line) coverage: 54.6% to 57.1% (2.5% increase)
 - Branch coverage: 65.9% to 67.1% (1.2% increase)
-- Condition (Method) coverage: 65.2% to 65.2% (0% change)
+- Condition (Method) coverage: 65.2% to 65.2% (0.0% change)
 
 
 # 5 A detailed report of the coverage achieved of each class and method (a screen shot from the code cover results in green and red color would suffice)
