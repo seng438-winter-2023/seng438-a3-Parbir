@@ -20,12 +20,45 @@ The objective of this lab is to explore the idea of white box testing using JUni
 Methods: Range.contains() and DataUtilities.calculateColumnTotal()
 ## Range.contains()
 ### Dataflow Graph
-(need to add)
+![](media/Range-containsDFD.jpg)
 ### Def-path set
+- du(start, this.upper) = { [start, 1, 2, 3], [start, 1, 2, 3, 4], [start, 1, 2, 3, 4, 5], [start, 1, 2, 3, 4, 5, 6] }
+- du(start, this.lower) = { [start, 1, 2], [start, 1, 2, 3, 4], [start, 1, 2, 3, 4, 5], [start, 1, 2, 3, 4, 5, 6] }
+- du(1, value) = { [1, 2], [1, 2, 3], [1, 2, 3, 4], [1, 2, 3, 4, 5], [start, 1, 2, 3, 4, 5, 6] }
 ### Def-pair set
+- du(start, 3, this.upper) = { [start, 1, 2, 3] }
+- du(start, 4, this.upper) = { [start, 1, 2, 3, 4] }
+- du(start, 5, this.upper) = { [start, 1, 2, 3, 4, 5] }
+- du(start, 6, this.upper) = { [start, 1, 2, 3, 4, 5, 6] }
+- du(start, 2, this.lower) = { [start, 1, 2] }
+- du(start, 4, this.lower) = { [start, 1, 2, 3, 4] }
+- du(start, 5, this.lower) = { [start, 1, 2, 3, 4, 5] }
+- du(start, 6, this.lower) = { [start, 1, 2, 3, 4, 5, 6] }
+- du(1, 2, value) = { [1, 2] }
+- du(1, 3, value) = { [1, 2, 3] }
+- du(1, 4, value) = { [1, 2, 3, 4] }
+- du(1, 5, value) = { [1, 2, 3, 4, 5] }
+- du(1, 6, value) = { [1, 2, 3, 4, 5, 6] }
 ### DU-Pairs per Variable
+| Variable (v) | Defined at node (n) | DU Pairs                                           |
+| ------------ | ------------------- | -------------------------------------------------- |
+| this.upper   | start               | { (start, 3), (start, 4), (start, 5), (start, 6) } |
+| this.lower   | start               | { (start, 2), (start, 4), (start, 5), (start, 6) } |
+| value        | 1                   | { (1, 2), (1, 3), (1, 4), (1, 5), (1, 6) }         |
 ### DU-Pairs per Test Case
+| Test Case                                       | Pairs Covered                                                                                                                                             |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| testGetContainsNumberExists()                   | du(start, 3, this.upper), du(start, 4, this.upper), du(start, 2, this.lower), du(start, 4, this.lower), du(1, 2, value), du(1, 3, value), du(1, 4, value) |
+| testGetContainsNumberNotExistsLower()           | du(start, 2, this.lower), du(1, 2, value)                                                                                                                 |
+| testGetContainsNumberNotExistsUpper()           | du(start, 3, this.upper), du(start, 2, this.lower), du(1, 2, value), du(1, 3, value)                                                                      |
+| testGetContainsPositiveNumberExistsLowerBound() | du(start, 3, this.upper), du(start, 4, this.upper), du(start, 2, this.lower), du(start, 4, this.lower), du(1, 2, value), du(1, 3, value), du(1, 4, value) |
+| testGetContainsPositiveNumberExistsUpperBound() | du(start, 3, this.upper), du(start, 4, this.upper), du(start, 2, this.lower), du(start, 4, this.lower), du(1, 2, value), du(1, 3, value), du(1, 4, value) |
+| testGetContainsNegativeNumberExistsLowerBound() | du(start, 3, this.upper), du(start, 4, this.upper), du(start, 2, this.lower), du(start, 4, this.lower), du(1, 2, value), du(1, 3, value), du(1, 4, value) |
+| testGetContainsNegativeNumberExistsUpperBound() | du(start, 3, this.upper), du(start, 4, this.upper), du(start, 2, this.lower), du(start, 4, this.lower), du(1, 2, value), du(1, 3, value), du(1, 4, value) |
 ### DU Pair Coverage
+Total pairs = 13  
+Number of unique pairs covered =  7  
+**DU pair coverage = Number of unique pairs covered / Total pairs = 7 / 13 * 100% = 53.86%**  
 ## DataUtilities.calculateColumnTotal()
 ### Dataflow Graph
 ![](media/DataUtilities-calculateColumnTotalDFD.jpg)
